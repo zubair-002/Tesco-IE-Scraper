@@ -1,4 +1,4 @@
-from ..utils import headers, get_payload
+from .utils import headers, get_payload
 import os
 import pandas as pd
 import json
@@ -23,6 +23,11 @@ class ProductsSpider(scrapy.Spider):
         # -a output="path/to/file.csv" lets each AWS chunk write its own file.
         # Falls back to the old default if not given (e.g. running locally).
         self.output_path = output or f"Output/tescoie_{datetime.now().strftime('%Y%m%d')}.csv"
+
+        # TEMPORARY DEBUG — remove once the empty-results issue is fixed
+        print(f"DEBUG raw categories arg = {categories!r}")
+        print(f"DEBUG parsed category_ids = {self.category_ids!r}")
+        print(f"DEBUG output_path = {self.output_path!r}")
 
     def start_requests(self):
         for id in self.category_ids:

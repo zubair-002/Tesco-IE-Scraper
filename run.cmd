@@ -1,2 +1,0 @@
-scrapy crawl products 
-pause
