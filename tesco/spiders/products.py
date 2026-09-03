@@ -1,4 +1,4 @@
-from .utils import headers, get_payload
+from ..utils import headers, get_payload
 import os
 import pandas as pd
 import json
