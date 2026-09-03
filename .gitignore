@@ -3,4 +3,4 @@ downloads/
 *.pyc
 __pycache__/
 .env
-*.csv" > .gitignore
+*.csv" > .gitignore"Output/" 
