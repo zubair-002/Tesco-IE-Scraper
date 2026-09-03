@@ -1,4 +1,4 @@
-from ..utils import headers, get_payload
+from .utils import headers, get_payload
 import os
 import pandas as pd
 import json
@@ -30,6 +30,7 @@ class ProductsSpider(scrapy.Spider):
         print(f"DEBUG output_path = {self.output_path!r}")
 
     def start_requests(self):
+        print(f"DEBUG start_requests() called with {len(self.category_ids)} id(s)")
         for id in self.category_ids:
             payload = get_payload(id, 1)
             yield scrapy.Request(url="https://xapi.tesco.com/", headers=headers, method='POST',
